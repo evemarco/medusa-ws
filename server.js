@@ -7,7 +7,7 @@ io.sockets.on('connection', (socket) => {
   })
   socket.on('boss', (fleet) => {
     let fleetID = `fleet-${fleet.fleet_id}`
-    console.log(fleetID, 'by', socket.name)
+    // console.log(fleetID, 'by', socket.name)
     socket.broadcast.emit(fleetID, fleet)
   })
 
