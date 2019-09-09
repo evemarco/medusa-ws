@@ -39,7 +39,8 @@ function emitFleets (socket, disconnect) {
       }
     }
     // socket.broadcast.emit(`clients-${process.env.KEY}`, fleets)
-    io.sockets.emit(`clients-${process.env.KEY}`, fleets)
-    console.log(JSON.stringify({ fleets: fleets, count: count, date: new Date().toISOString() }))
+    let emit = { fleets: fleets, count: count, date: new Date().toISOString() }
+    io.sockets.emit(`clients-${process.env.KEY}`, emit)
+    console.log(JSON.stringify(emit))
   })
 }
