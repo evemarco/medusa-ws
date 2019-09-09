@@ -38,7 +38,8 @@ function emitFleets (socket, disconnect) {
         fleets[player.fleet_id].push({ name: player.name, character_id: player.character_id, socket: player.id })
       }
     }
-    socket.broadcast.emit(`clients-${process.env.KEY}`, fleets)
+    // socket.broadcast.emit(`clients-${process.env.KEY}`, fleets)
+    io.sockets.emit(`clients-${process.env.KEY}`, fleets)
     console.log(JSON.stringify({ fleets: fleets, count: count, date: new Date().toISOString() }))
   })
 }
